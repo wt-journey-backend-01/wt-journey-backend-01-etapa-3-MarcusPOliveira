@@ -19,7 +19,7 @@ jobs:
 
     runs-on: ubuntu-latest
     
-    if: github.actor != 'WebTech-Journey-Autograder[bot]' && github.actor != 'ArthurCRodrigues'
+    if: github.actor != 'github-classroom[bot]' && github.actor != 'WebTech-Journey-Autograder[bot]' && github.actor != 'ArthurCRodrigues'
 
     steps:
      
