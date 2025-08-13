@@ -177,4 +177,43 @@ router.patch('/agentes/:id', agentesController.patch)
  */
 router.delete('/agentes/:id', agentesController.remove)
 
+/**
+ * @swagger
+ * /agentes/{id}/casos:
+ *   get:
+ *     summary: Lista todos os casos atribuídos a um agente
+ *     tags: [Agentes]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID do agente
+ *     responses:
+ *       200:
+ *         description: Lista de casos do agente retornada com sucesso
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: integer
+ *                   titulo:
+ *                     type: string
+ *                   descricao:
+ *                     type: string
+ *                   status:
+ *                     type: string
+ *                     enum: [aberto, solucionado]
+ *                   agente_id:
+ *                     type: integer
+ *       404:
+ *         description: Agente não encontrado
+ */
+router.get('/agentes/:id/casos', agentesController.getCasos)
+
 module.exports = router

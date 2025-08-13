@@ -143,6 +143,24 @@ const remove = async (req, res) => {
   res.status(204).send()
 }
 
+const getCasos = async (req, res) => {
+  const { id } = req.params
+  const agentId = parseInt(id)
+  
+  // Verify agent exists
+  const agente = await agentesRepository.findById(agentId)
+  if (!agente) {
+    return res.status(404).json({ message: 'Agente não encontrado' })
+  }
+  
+  // Get cases for this agent
+  const casosRepository = require('../repositories/casosRepository')
+  const allCases = await casosRepository.findAll()
+  const agentCases = allCases.filter(caso => caso.agente_id === agentId)
+  
+  res.json(agentCases)
+}
+
 module.exports = {
   getAll,
   getById,
@@ -150,4 +168,5 @@ module.exports = {
   put,
   patch,
   remove,
+  getCasos,
 }

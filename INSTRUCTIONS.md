@@ -102,6 +102,7 @@ Acesse a documentação Swagger em: **http://localhost:3000/api-docs**
 - `PUT /agentes/:id` - Atualizar agente completo
 - `PATCH /agentes/:id` - Atualizar agente parcial
 - `DELETE /agentes/:id` - Remover agente
+- `GET /agentes/:id/casos` - **[BONUS]** Listar casos de um agente específico
 
 **Casos:**
 - `GET /casos` - Listar casos
@@ -124,6 +125,9 @@ npx knex migrate:rollback
 
 # Recriar seeds
 npx knex seed:run
+
+# [BONUS] Reset completo do banco (rollback + migrate + seed)
+npm run db:reset
 
 # Parar container do banco
 docker-compose down
@@ -168,6 +172,12 @@ curl -X POST http://localhost:3000/casos \
     "status": "aberto",
     "agente_id": 1
   }'
+```
+
+### Exemplo: Listar casos de um agente (BONUS)
+```bash
+# Listar todos os casos do agente ID 1
+curl http://localhost:3000/agentes/1/casos
 ```
 
 ## ❗ Solução de Problemas

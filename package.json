@@ -8,7 +8,9 @@
   },
   "scripts": {
     "dev": "node --watch ./server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:reset": "npx knex migrate:rollback --all && npx knex migrate:latest && npx knex seed:run"
   },
   "keywords": [],
   "author": "",
