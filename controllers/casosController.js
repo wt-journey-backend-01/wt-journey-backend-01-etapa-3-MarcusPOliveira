@@ -21,9 +21,7 @@ const getAll = async (req, res, next) => {
         return next(err)
       }
 
-      data = data.filter(
-        (caso) => caso.agente_id === parseInt(agente_id)
-      )
+      data = data.filter((caso) => caso.agente_id === parseInt(agente_id))
     }
 
     if (status) {
@@ -160,7 +158,10 @@ const patch = async (req, res) => {
     }
   }
 
-  const atualizado = await casosRepository.patch(parseInt(req.params.id), parsed.data)
+  const atualizado = await casosRepository.patch(
+    parseInt(req.params.id),
+    parsed.data
+  )
   if (!atualizado)
     return res.status(404).json({ message: 'Caso não encontrado' })
 

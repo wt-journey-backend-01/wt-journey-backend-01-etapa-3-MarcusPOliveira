@@ -18,7 +18,7 @@ const update = async (id, updated) => {
     .where('id', id)
     .update(updated)
     .returning('*')
-  
+
   return updatedCaso || null
 }
 
@@ -27,7 +27,7 @@ const patch = async (id, data) => {
     .where('id', id)
     .update(data)
     .returning('*')
-  
+
   return patchedCaso || null
 }
 

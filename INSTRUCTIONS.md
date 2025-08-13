@@ -72,8 +72,8 @@ npx knex seed:run
 ```
 
 **Dados inseridos:**
-- 2 agentes (Maria Santos - delegado, Pedro Oliveira - inspetor)
-- 2 casos (Furto de veículo, Vandalismo em escola)
+- 2 agentes (Maria Santos - delegado, Pedro Oliveira - inspetor) via `agentes.js`
+- 2 casos (Furto de veículo, Vandalismo em escola) via `casos.js`
 
 ## 🏃‍♂️ Executando a Aplicação
 

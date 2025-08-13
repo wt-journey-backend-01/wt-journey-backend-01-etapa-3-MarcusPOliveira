@@ -9,7 +9,10 @@ const agenteSchema = z.object({
 })
 
 const agenteSchemaComId = agenteSchema.extend({
-  id: z.number().int().positive("Campo 'id' deve ser um número inteiro positivo"),
+  id: z
+    .number()
+    .int()
+    .positive("Campo 'id' deve ser um número inteiro positivo"),
 })
 
 const casoSchema = z.object({
@@ -18,11 +21,17 @@ const casoSchema = z.object({
   status: z.enum(['aberto', 'solucionado'], {
     message: "Status deve ser 'aberto' ou 'solucionado'",
   }),
-  agente_id: z.number().int().positive("Campo 'agente_id' deve ser um número inteiro positivo"),
+  agente_id: z
+    .number()
+    .int()
+    .positive("Campo 'agente_id' deve ser um número inteiro positivo"),
 })
 
 const casoSchemaComId = casoSchema.extend({
-  id: z.number().int().positive("Campo 'id' deve ser um número inteiro positivo"),
+  id: z
+    .number()
+    .int()
+    .positive("Campo 'id' deve ser um número inteiro positivo"),
 })
 
 module.exports = {

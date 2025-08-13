@@ -18,7 +18,7 @@ const update = async (id, updated) => {
     .where('id', id)
     .update(updated)
     .returning('*')
-  
+
   return updatedAgente || null
 }
 
@@ -27,7 +27,7 @@ const patch = async (id, partial) => {
     .where('id', id)
     .update(partial)
     .returning('*')
-  
+
   return patchedAgente || null
 }
 
